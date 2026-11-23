@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VIP Smart Parking</title>
+<style>
+:root { color-scheme: dark; font-family: Arial, sans-serif; }
+body { background: #101827; color: #e9f1ff; margin: 0; padding: 28px; }
+main { max-width: 860px; margin: auto; }
+h1 { color: #9ae6d1; }
+.panel { padding: 20px; border: 1px solid #344054; border-radius: 14px;
+background: #182338; margin: 18px 0; }
+input, select, button { padding: 11px; margin: 5px; border-radius: 7px;
+border: 1px solid #607089; font-size: 15px; }
+button { cursor: pointer; background: #9ae6d1; color: #101827; border: 0; }
+button:hover { opacity: .85; }
+table { width: 100%; border-collapse: collapse; }
+td, th { padding: 11px; border-bottom: 1px solid #344054; text-align: left; }
+.warning { color: #ffb2a1; }
+.info { color: #a5bed4; }
+</style>
+</head>
+<body>
+<main>
+<h1>VIP Smart Parking</h1>
+<p class="info">Live parking dashboard updated every 3 seconds</p>
+<section class="panel">
+<h2>Occupancy: <span id="count">-</span> / <span id="capacity">-</span></h2>
+<p id="capacity-alert"></p>
+</section>
+<section class="panel">
+<h2>Simulate camera: add a car</h2>
+<form id="car-form">
+<input id="plate" placeholder="123-45-678" required maxlength="15">
+<select id="category"><option value="REGULAR">Regular</option>
+<option value="VIP">VIP</option></select>
+<button type="submit">Register entrance</button>
+</form>
+<p id="message" role="status"></p>
+</section>
+<section class="panel">
+<h2>Cars currently inside</h2>
+<table>
+<thead><tr><th>License plate</th><th>Type</th><th>Entry (UTC)</th><th>Action</th></tr></thead>
+<tbody id="car-list"></tbody>
+</table>
+</section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
